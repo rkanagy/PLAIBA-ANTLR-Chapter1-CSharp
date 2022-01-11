@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicEvaluatorRepl", "BasicEvaluatorRepl\BasicEvaluatorRepl.csproj", "{C34B1E80-BF10-4095-93C2-9271B93B84EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicEvaluatorInterpreter", "BasicEvaluatorInterpreter\BasicEvaluatorInterpreter.csproj", "{FE6C35D5-F35D-4414-A939-8E6E4BA152EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C34B1E80-BF10-4095-93C2-9271B93B84EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C34B1E80-BF10-4095-93C2-9271B93B84EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C34B1E80-BF10-4095-93C2-9271B93B84EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C34B1E80-BF10-4095-93C2-9271B93B84EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6C35D5-F35D-4414-A939-8E6E4BA152EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6C35D5-F35D-4414-A939-8E6E4BA152EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6C35D5-F35D-4414-A939-8E6E4BA152EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6C35D5-F35D-4414-A939-8E6E4BA152EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
