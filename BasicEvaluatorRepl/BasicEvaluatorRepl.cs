@@ -14,7 +14,7 @@ public static class BasicEvaluatorRepl
         while (!quittingTime)
         {
             // Read
-            string strInput = GetInput();
+            string strInput = ReadInput();
             
             switch (strInput.Trim())
             {
@@ -35,7 +35,7 @@ public static class BasicEvaluatorRepl
         }
     }
 
-    private static string GetInput()
+    private static string ReadInput()
     {
         int parenCount = 0;
         string prompt = "-> ";
