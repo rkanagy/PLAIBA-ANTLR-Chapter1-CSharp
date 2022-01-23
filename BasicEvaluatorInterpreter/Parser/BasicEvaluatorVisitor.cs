@@ -19,6 +19,7 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
+namespace BasicEvaluatorInterpreter.Parser {
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
 using IToken = Antlr4.Runtime.IToken;
@@ -106,13 +107,6 @@ public interface IBasicEvaluatorVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitBeginExpr([NotNull] BasicEvaluatorParser.BeginExprContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>functionExpr</c>
-	/// labeled alternative in <see cref="BasicEvaluatorParser.expression"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitFunctionExpr([NotNull] BasicEvaluatorParser.FunctionExprContext context);
-	/// <summary>
 	/// Visit a parse tree produced by the <c>operatorExpr</c>
 	/// labeled alternative in <see cref="BasicEvaluatorParser.expression"/>.
 	/// </summary>
@@ -120,18 +114,25 @@ public interface IBasicEvaluatorVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitOperatorExpr([NotNull] BasicEvaluatorParser.OperatorExprContext context);
 	/// <summary>
-	/// Visit a parse tree produced by the <c>printExpr</c>
-	/// labeled alternative in <see cref="BasicEvaluatorParser.expression"/>.
+	/// Visit a parse tree produced by the <c>functionExpr</c>
+	/// labeled alternative in <see cref="BasicEvaluatorParser.operator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitPrintExpr([NotNull] BasicEvaluatorParser.PrintExprContext context);
+	Result VisitFunctionExpr([NotNull] BasicEvaluatorParser.FunctionExprContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BasicEvaluatorParser.value"/>.
+	/// Visit a parse tree produced by the <c>valueOpExpr</c>
+	/// labeled alternative in <see cref="BasicEvaluatorParser.operator"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitValue([NotNull] BasicEvaluatorParser.ValueContext context);
+	Result VisitValueOpExpr([NotNull] BasicEvaluatorParser.ValueOpExprContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BasicEvaluatorParser.valueOp"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitValueOp([NotNull] BasicEvaluatorParser.ValueOpContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BasicEvaluatorParser.function"/>.
 	/// </summary>
@@ -144,4 +145,11 @@ public interface IBasicEvaluatorVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitVariable([NotNull] BasicEvaluatorParser.VariableContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BasicEvaluatorParser.value"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitValue([NotNull] BasicEvaluatorParser.ValueContext context);
 }
+} // namespace BasicEvaluatorInterpreter.Parser

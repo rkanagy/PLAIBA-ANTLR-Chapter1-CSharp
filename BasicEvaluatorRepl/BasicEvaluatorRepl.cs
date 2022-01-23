@@ -1,4 +1,5 @@
 using BasicEvaluatorInterpreter;
+using BasicEvaluatorInterpreter.Interpreter;
 
 namespace BasicEvaluatorRepl;
 
@@ -12,23 +13,24 @@ public static class BasicEvaluatorRepl
         bool quittingTime = false;
         while (!quittingTime)
         {
+            // Read
             string strInput = GetInput();
-
-            if (strInput.Trim().Equals("quit"))
-                quittingTime = true;
-            else if (strInput.Trim().Equals("clear"))
-                memory.Clear();
-            else if (strInput.Length >= 7 && strInput.Trim().Substring(1, 6).Equals("define"))
+            
+            switch (strInput.Trim())
             {
-                string functionName = Parser.ParseDefinition(strInput, memory);
-                if (!string.IsNullOrWhiteSpace(functionName))
-                    Console.Out.WriteLine(functionName);
-            }
-            else
-            {
-                Value value = Parser.ParseExpression(strInput, memory);
-                if (value.IsDefined)
-                    Console.Out.WriteLine(value.GetValue);
+                case "quit":
+                    quittingTime = true;
+                    break;
+                case "clear":
+                    memory.Clear();
+                    break;
+                default:
+                    // Eval
+                    EvaluatorInput? result = EvaluateInput(strInput, memory);
+                    
+                    // Print
+                    if (result != null) PrintResult(result);
+                    break;
             }
         }
     }
@@ -61,5 +63,38 @@ public static class BasicEvaluatorRepl
         } while (parenCount != 0);
 
         return string.Join("\n", lines);
+    }
+
+    private static EvaluatorInput? EvaluateInput(string strInput, Memory memory)
+    {
+        try
+        {
+            return LanguageParser.ParseInput(strInput, memory);
+        }
+        catch (InterpreterException err)
+        {
+            Console.Out.WriteLine(err.Message);
+        }
+
+        return null;
+    }
+    
+    private static void PrintResult(EvaluatorInput result)
+    {
+        if (result is FunctionDef functionDef)
+        {
+            string functionName = functionDef.Name;
+            if (!string.IsNullOrWhiteSpace(functionName))
+            {
+                Console.Out.WriteLine(functionName);
+            }
+        }
+        else if (result is ExprResult exprResult)
+        {
+            Value value = exprResult.Result;
+            Console.Out.WriteLine(value.DataValue);
+        }
+
+        Console.Out.WriteLine();
     }
 }

@@ -1,4 +1,4 @@
-namespace BasicEvaluatorInterpreter;
+namespace BasicEvaluatorInterpreter.Interpreter;
 
 public class Memory
 {

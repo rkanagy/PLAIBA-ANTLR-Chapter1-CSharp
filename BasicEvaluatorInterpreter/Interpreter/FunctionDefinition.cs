@@ -1,4 +1,6 @@
-namespace BasicEvaluatorInterpreter;
+using BasicEvaluatorInterpreter.Parser;
+
+namespace BasicEvaluatorInterpreter.Interpreter;
 
 public class FunctionDefinition
 {

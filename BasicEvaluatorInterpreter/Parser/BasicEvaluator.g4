@@ -12,14 +12,16 @@ expression: value                                                               
           | LPAREN WHILE expression expression RPAREN                             # whileExpr
           | LPAREN SET variable expression RPAREN                                 # setExpr
           | LPAREN BEGIN expression+ RPAREN                                       # beginExpr
-          | LPAREN function expression* RPAREN                                    # functionExpr
-          | LPAREN op=('+'|'-'|'*'|'/'|'='|'<'|'>') expression expression RPAREN  # operatorExpr
-          | LPAREN PRINT expression RPAREN                                        # printExpr
+          | LPAREN operator expression* RPAREN                                    # operatorExpr
+          ;
+operator  : function                                                              # functionExpr
+          | valueOp                                                               # valueOpExpr
           ;
 
-value     : INTEGER ;
+valueOp   : ADD | SUB | MUL | DIV |EQ | LT | GT | PRINT ;          
 function  : NAME ;
 variable  : NAME ;
+value     : INTEGER ;
 
 ADD       : '+' ;
 SUB       : '-' ;

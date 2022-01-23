@@ -19,6 +19,7 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
+namespace BasicEvaluatorInterpreter.Parser {
 using System;
 using System.IO;
 using System.Text;
@@ -203,3 +204,4 @@ public partial class BasicEvaluatorLexer : Lexer {
 
 
 }
+} // namespace BasicEvaluatorInterpreter.Parser

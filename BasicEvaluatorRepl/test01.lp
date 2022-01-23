@@ -29,5 +29,6 @@ x
                 (set r (mod m n))))
         n))
 (gcd 6 15)
-(define gcd (m n)
-    (if (= n 0) m (gcd n (mod m n))))
+(define gcd2 (m n)
+    (if (= n 0) m (gcd2 n (mod m n))))
+(gcd2 6 15)

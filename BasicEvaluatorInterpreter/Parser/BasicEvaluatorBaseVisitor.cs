@@ -19,6 +19,7 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
+namespace BasicEvaluatorInterpreter.Parser {
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
 using IToken = Antlr4.Runtime.IToken;
@@ -153,17 +154,6 @@ public partial class BasicEvaluatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// <return>The visitor result.</return>
 	public virtual Result VisitBeginExpr([NotNull] BasicEvaluatorParser.BeginExprContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by the <c>functionExpr</c>
-	/// labeled alternative in <see cref="BasicEvaluatorParser.expression"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitFunctionExpr([NotNull] BasicEvaluatorParser.FunctionExprContext context) { return VisitChildren(context); }
-	/// <summary>
 	/// Visit a parse tree produced by the <c>operatorExpr</c>
 	/// labeled alternative in <see cref="BasicEvaluatorParser.expression"/>.
 	/// <para>
@@ -175,8 +165,8 @@ public partial class BasicEvaluatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// <return>The visitor result.</return>
 	public virtual Result VisitOperatorExpr([NotNull] BasicEvaluatorParser.OperatorExprContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by the <c>printExpr</c>
-	/// labeled alternative in <see cref="BasicEvaluatorParser.expression"/>.
+	/// Visit a parse tree produced by the <c>functionExpr</c>
+	/// labeled alternative in <see cref="BasicEvaluatorParser.operator"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -184,9 +174,10 @@ public partial class BasicEvaluatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitPrintExpr([NotNull] BasicEvaluatorParser.PrintExprContext context) { return VisitChildren(context); }
+	public virtual Result VisitFunctionExpr([NotNull] BasicEvaluatorParser.FunctionExprContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="BasicEvaluatorParser.value"/>.
+	/// Visit a parse tree produced by the <c>valueOpExpr</c>
+	/// labeled alternative in <see cref="BasicEvaluatorParser.operator"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -194,7 +185,17 @@ public partial class BasicEvaluatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitValue([NotNull] BasicEvaluatorParser.ValueContext context) { return VisitChildren(context); }
+	public virtual Result VisitValueOpExpr([NotNull] BasicEvaluatorParser.ValueOpExprContext context) { return VisitChildren(context); }
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BasicEvaluatorParser.valueOp"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitValueOp([NotNull] BasicEvaluatorParser.ValueOpContext context) { return VisitChildren(context); }
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="BasicEvaluatorParser.function"/>.
 	/// <para>
@@ -215,4 +216,15 @@ public partial class BasicEvaluatorBaseVisitor<Result> : AbstractParseTreeVisito
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	public virtual Result VisitVariable([NotNull] BasicEvaluatorParser.VariableContext context) { return VisitChildren(context); }
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="BasicEvaluatorParser.value"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitValue([NotNull] BasicEvaluatorParser.ValueContext context) { return VisitChildren(context); }
 }
+} // namespace BasicEvaluatorInterpreter.Parser

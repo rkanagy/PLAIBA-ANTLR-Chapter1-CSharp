@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicEvaluatorRepl", "Basic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicEvaluatorInterpreter", "BasicEvaluatorInterpreter\BasicEvaluatorInterpreter.csproj", "{FE6C35D5-F35D-4414-A939-8E6E4BA152EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicEvaluatorUnitTests", "BasicEvaluatorUnitTests\BasicEvaluatorUnitTests.csproj", "{0578B9F2-4B5E-426E-BCFB-FF798C3E0AD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{FE6C35D5-F35D-4414-A939-8E6E4BA152EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE6C35D5-F35D-4414-A939-8E6E4BA152EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE6C35D5-F35D-4414-A939-8E6E4BA152EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0578B9F2-4B5E-426E-BCFB-FF798C3E0AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0578B9F2-4B5E-426E-BCFB-FF798C3E0AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0578B9F2-4B5E-426E-BCFB-FF798C3E0AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0578B9F2-4B5E-426E-BCFB-FF798C3E0AD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
